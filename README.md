@@ -43,4 +43,12 @@ El análisis cognitivo ("Cognitive Engine") procesa todos los strings dentro del
 `````
 
 ---
-*"Software hecho con ❤️ por [Plantacerium](https://github.com/plantacerium). "*
+## ⚡ Support
+<div align="center">
+
+**Made with ❤️ by Plantacerium**
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/plantacerium)
+
+⭐ **Star us on GitHub** ⭐
+</div>
