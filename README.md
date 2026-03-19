@@ -2,6 +2,9 @@
 
 Creado específicamente para protectoras de animales (inspirado por Moka y la Protectora de Utebo). Este proyecto revoluciona la forma en que se presentan los animales en busca de hogar, pasando de simples "fichas de datos" a **"perfiles cognitivos y espirituales"**.
 
+## UI
+![Anima Essentia](./AnimaEssentiaUI.JPG)
+
 ## 🌟 La Visión
 
 Cada animal rescatado tiene una historia profunda que contar. El objetivo de este proyecto es manifestar la verdadera esencia del animal. Para ello, hemos creado un sistema interactivo que:
