@@ -1,0 +1,714 @@
+/* style.css */
+:root {
+    --bg-main: #1a1a1a;
+    --text-main: #f0f0f0;
+    --accent: #d4af37;
+    /* Dorado Sol Invictus */
+    --font-sans: 'Inter', 'Segoe UI', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 95%;
+    max-width: 1300px;
+    padding: 2rem 0;
+}
+
+/* Zonas */
+.input-zone,
+.preview-zone {
+    flex: 1;
+    min-width: 320px;
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.input-zone h2 {
+    font-family: var(--font-serif);
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.subtitle {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    width: 100%;
+    height: 350px;
+    background: #1e1e1e;
+    color: #a3be8c;
+    /* Verde código zen */
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 0.95rem;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.upload-group {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.upload-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Select Estilizado */
+select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: #1e1e1e;
+    color: #eee;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    transition: all 0.3s ease;
+}
+
+select:hover,
+select:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+/* Inputs de Archivo Modernos */
+input[type="file"] {
+    background: #1e1e1e;
+    padding: 0.4rem;
+    border-radius: 8px;
+    border: 1px dashed #444;
+    color: #888;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button {
+    background: #333;
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #444;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: var(--accent);
+    background: #252528;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--accent);
+    color: #111;
+}
+
+/* Checkbox y su Label */
+.checkbox-group {
+    padding: 0.5rem 0;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    color: #bbb;
+    opacity: 1;
+}
+
+button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--accent) 0%, #ebd074 100%);
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+    background: linear-gradient(135deg, #ebd074 0%, var(--accent) 100%);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Efecto de brillo en el botón principal */
+#generate-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+#generate-btn:hover::after {
+    left: 100%;
+}
+
+/* --- MODO GRABACIÓN (Limpieza de UI para captura perfecta) --- */
+body.recording-mode {
+    background: #000;
+    /* Fondo neutro para captura */
+    overflow: hidden;
+}
+
+body.recording-mode .input-zone,
+body.recording-mode .export-actions,
+body.recording-mode .footer-creditos {
+    display: none !important;
+}
+
+body.recording-mode .app-container {
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+body.recording-mode .preview-zone {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+}
+
+body.recording-mode .ficha {
+    opacity: 1 !important;
+    transform-origin: center top;
+}
+
+/* Escalado de fuentes compensatorio para el zoom 33% durante la grabación */
+body.recording-mode .title-main {
+    font-size: 4.5rem !important;
+    /* Casi el doble para compensar el 33% */
+}
+
+body.recording-mode .section-category {
+    font-size: 2.2rem !important;
+}
+
+body.recording-mode .data-tag {
+    font-size: 1.6rem !important;
+    padding: 0.8rem 1.8rem !important;
+    border-radius: 40px !important;
+}
+
+body.recording-mode .tag-key {
+    font-size: 1.3rem !important;
+}
+
+body.recording-mode .long-text {
+    font-size: 2rem !important;
+    line-height: 1.6 !important;
+}
+
+body.recording-mode .wisdom-text {
+    font-size: 2.2rem !important;
+}
+
+body.recording-mode .wisdom-source {
+    font-size: 1.5rem !important;
+}
+
+body.recording-mode .info-container {
+    padding: 4rem 3rem !important;
+}
+
+body.recording-mode .logo-banner {
+    padding: 2.5rem !important;
+}
+
+body.recording-mode .org-logo {
+    max-height: 120px !important;
+}
+
+/* --- LA FICHA (Componente Emocional Cognitivo) --- */
+.ficha {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+/* Adaptabilidad pura de formato */
+.media-container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    /* default */
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: aspect-ratio 0.5s ease;
+}
+
+.media-container.ratio-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.media-container.ratio-16-10 {
+    aspect-ratio: 16 / 10;
+}
+
+.media-container.ratio-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+.media-container.ratio-9-16 {
+    aspect-ratio: 9 / 16;
+}
+
+.media-container img,
+.media-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Magia para adaptarse a cualquier ratio */
+    transition: transform 1.5s ease, filter 1s ease;
+}
+
+.media-container:hover img {
+    transform: scale(1.03);
+}
+
+.info-container {
+    padding: 2.5rem 2rem;
+}
+
+/* Contenido Dinámico */
+.title-main {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+}
+
+.data-tag {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tag-key {
+    font-weight: 600;
+    opacity: 0.7;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.section-category {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.3rem;
+    text-transform: capitalize;
+}
+
+.long-text {
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.text-key {
+    font-weight: 600;
+}
+
+/* THEMES (La vibración visual) */
+.theme-nature {
+    background: #f4f6f3;
+    color: #2c4c3b;
+    box-shadow: 0 15px 35px rgba(232, 240, 230, 0.2);
+}
+
+.theme-nature .data-tag {
+    background: #e1ede3;
+    color: #1a3022;
+    border-color: #c4d6c6;
+}
+
+.theme-nature .section-category,
+.theme-nature .text-key {
+    color: #1e4d34;
+    border-color: rgba(44, 76, 59, 0.2);
+}
+
+.theme-nature .logo-banner {
+    background: #eef2ed;
+    border-bottom: 2px solid #d8e2d7;
+}
+
+.theme-cyber {
+    background: #0f0f13;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.15);
+}
+
+.theme-cyber .data-tag {
+    background: rgba(255, 0, 85, 0.15);
+    color: #ff0055;
+    border-color: rgba(255, 0, 85, 0.4);
+}
+
+.theme-cyber .section-category,
+.theme-cyber .text-key {
+    color: #ff0055;
+    border-color: rgba(255, 0, 85, 0.3);
+}
+
+.theme-cyber .logo-banner {
+    background: #15151b;
+    border-bottom: 1px solid #00ffcc;
+}
+
+.theme-light {
+    background: #ffffff;
+    color: #222222;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+}
+
+.theme-light .data-tag {
+    background: #f0f0f0;
+    color: #444;
+    border-color: #ddd;
+}
+
+/* THEME: Sunset */
+.theme-sunset {
+    background: linear-gradient(135deg, #2f1d18 0%, #462215 100%);
+    color: #f7d8ba;
+    box-shadow: 0 15px 35px rgba(255, 100, 50, 0.15);
+}
+
+.theme-sunset .data-tag {
+    background: rgba(255, 160, 122, 0.15);
+    color: #ffbba3;
+    border-color: rgba(255, 160, 122, 0.3);
+}
+
+.theme-sunset .section-category,
+.theme-sunset .text-key {
+    color: #ff9e7a;
+    border-color: rgba(255, 158, 122, 0.15);
+}
+
+.theme-sunset .logo-banner {
+    background: rgba(47, 29, 24, 0.4);
+    border-bottom: 1px solid rgba(255, 158, 122, 0.2);
+}
+
+/* THEME: Ocean */
+.theme-ocean {
+    background: #0a192f;
+    color: #8892b0;
+    box-shadow: 0 15px 35px rgba(10, 25, 47, 0.5);
+    border: 1px solid #112240;
+}
+
+.theme-ocean .title-main,
+.theme-ocean .wisdom-text,
+.theme-ocean .text-key,
+.theme-ocean .section-category {
+    color: #64ffda;
+}
+
+.theme-ocean .data-tag {
+    background: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    border-color: rgba(100, 255, 218, 0.25);
+}
+
+.theme-ocean .logo-banner {
+    background: rgba(10, 25, 47, 0.8);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+/* THEME: Minimal */
+.theme-minimal {
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #000;
+    border-radius: 0;
+    box-shadow: 10px 10px 0px #000;
+}
+
+.theme-minimal .data-tag {
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 0;
+}
+
+.theme-minimal .section-category,
+.theme-minimal .text-key {
+    color: #000;
+    border-color: #000;
+}
+
+.theme-minimal .wisdom-block {
+    border-left: 6px solid #000;
+    background: #f5f5f5;
+    border-radius: 0;
+}
+
+.theme-minimal .logo-banner {
+    border-bottom: 3px solid #000;
+    background: #fff;
+    padding: 0.8rem;
+}
+
+
+/* Efectos Cognitivos - Reactividad al Texto */
+.cognitive-calm .media-container img {
+    filter: saturate(0.85) sepia(0.15) brightness(0.95);
+}
+
+.cognitive-energy .media-container img {
+    filter: contrast(1.1) saturate(1.2) brightness(1.05);
+}
+
+/* --- BLOQUE DE SABIDURÍA CANINA --- */
+.wisdom-block {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 0 12px 12px 0;
+    font-family: var(--font-serif);
+}
+
+.wisdom-text {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: inherit;
+    opacity: 0.9;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.wisdom-source {
+    font-size: 0.85rem;
+    text-align: right;
+    font-family: var(--font-sans);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* --- LOGO Y BANNER --- */
+.logo-banner {
+    width: 100%;
+    padding: 1.2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4);
+    /* Fondo sutil para destacar el logo */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.org-logo {
+    max-height: 60px;
+    max-width: 90%;
+    object-fit: contain;
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.org-logo:hover {
+    transform: scale(1.05);
+}
+
+.footer-creditos {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    border-top: 1px solid rgba(150, 150, 150, 0.2);
+    margin-top: 1rem;
+    font-family: var(--font-sans);
+}
+
+.footer-creditos a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* --- PARTICLES (Extra feature) --- */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* --- ZONA DE EXPORTACIONES --- */
+.export-actions {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.export-title {
+    font-family: var(--font-sans);
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.export-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.8rem;
+}
+
+.action-btn {
+    margin-top: 0;
+    padding: 0.9rem 1.2rem;
+    background: #252528;
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-transform: none;
+    /* No gritemos en los botones secundarios */
+}
+
+.action-btn:hover {
+    background: #323236;
+    color: var(--accent);
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+    transform: translateY(-1px);
+}
+
+/* THEMES Actualizados para Sabiduría */
+.theme-cyber .wisdom-block {
+    border-left-color: #ff0055;
+    background: rgba(0, 255, 204, 0.05);
+}
+
+.theme-cyber .wisdom-text {
+    font-family: monospace;
+    font-style: normal;
+}

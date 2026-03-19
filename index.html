@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anima Essentia - Plataforma de Conexión Cognitiva para Protectoras</title>
+    <!-- Librerías: YAML, GSAP, y Exportadores (html2canvas, jspdf) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- ZONA DE ENTRADA DE ENERGÍA (Inputs) -->
+        <section class="input-zone">
+            <h2>Esencia del Animal (YAML Dinámico)</h2>
+            <p class="subtitle">Define campos libremente. El perfil se adaptará a ellos (Inspirado en Moka y Utebo -
+                Zaragoza - Aragón).</p>
+            <textarea id="yaml-input" spellcheck="false">
+perro:
+  identidad:
+    nombre: "Moka"
+    esencia: "Hija del Sol"
+  datos_fisicos:
+    edad: "3 años"
+    raza: "Mestiza"
+  psicologia:
+    temperamento: "Noble, observadora y protectora"
+    vibracion: "Alta energía - requiere guía de paz certera"
+  historia_viva: "Moka tiene una mirada observadora que atraviesa. Cuidada por Sonrisa Animal Utebo."
+  meta_data:
+    tema: "nature" # Opciones: nature, cyber, light, sunset, ocean, minimal
+</textarea>
+
+            <div class="media-uploads">
+                <div class="upload-group">
+                    <label>Memoria Visual (Reordena alfabéticamente si son varias)</label>
+                    <input type="file" id="media-upload" accept="image/*,video/*" multiple>
+                </div>
+                <div class="upload-group">
+                    <label>Ratio Visual</label>
+                    <select id="ratio-select">
+                        <option value="16-9">Panorámico (16:9)</option>
+                        <option value="16-10" selected>Estándar (16:10)</option>
+                        <option value="4-3">Cuadrado (4:3)</option>
+                        <option value="9-16">Vertical (Reel/Storie 9:16)</option>
+                    </select>
+                </div>
+                <div class="upload-group">
+                    <label>Latido / Voz (Audio Opcional)</label>
+                    <input type="file" id="audio-upload" accept="audio/*">
+                </div>
+                <div class="upload-group">
+                    <label>Logo de la Protectora (Opcional)</label>
+                    <input type="file" id="logo-upload" accept="image/*">
+                </div>
+                <div class="upload-group">
+                    <label>Estilo Propio (CSS Opcional)</label>
+                    <input type="file" id="css-upload" accept=".css">
+                </div>
+                <div class="upload-group checkbox-group"
+                    style="flex-direction: row; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                    <input type="checkbox" id="show-wisdom" checked>
+                    <label for="show-wisdom" style="margin: 0;">Mostrar cita de sabiduría ancestral</label>
+                </div>
+            </div>
+            <button id="generate-btn">Manifestar Conexión</button>
+        </section>
+
+        <!-- ZONA DE MANIFESTACIÓN (Preview) -->
+        <section class="preview-zone">
+            <div id="card" class="ficha theme-nature">
+                <div class="media-container" id="media-container">
+                    <div class="placeholder-media">Esperando conexión visual...</div>
+                </div>
+
+                <div id="logo-wrapper" class="logo-banner" style="display: none;">
+                    <img id="out-logo" class="org-logo" alt="Logo corporativo">
+                </div>
+
+                <div class="info-container">
+                    <div id="dynamic-content">
+                        <!-- El DOM se generará aquí mágicamente -->
+                    </div>
+
+                    <div id="out-wisdom" class="wisdom-block">
+                        <p class="wisdom-text">Manifestando sabiduría animal...</p>
+                        <p class="wisdom-source">-- Fuente Estelar</p>
+                    </div>
+
+
+
+                    <audio id="out-audio" controls style="display: none;"></audio>
+                </div>
+
+                <div class="footer-creditos">
+                    Software creado por: <a href="https://github.com/plantacerium" target="_blank">Plantacerium</a>
+                </div>
+            </div>
+
+            <!-- BOTONES DE EXPORTACIÓN Y COMPARTICIÓN -->
+            <div class="export-actions" id="export-actions">
+                <p class="export-title">Descargar y Compartir:</p>
+                <div class="export-buttons">
+                    <button id="btn-export-img" class="action-btn">📸 Imagen (PNG)</button>
+                    <button id="btn-export-pdf" class="action-btn">📄 Documento (PDF)</button>
+                    <button id="btn-export-vid" class="action-btn">🎥 Video (WebM)</button>
+                    <button id="btn-export-data" class="action-btn">💾 Datos (JSON)</button>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
